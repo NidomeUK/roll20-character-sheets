@@ -1805,18 +1805,18 @@ span.sheet-spellconcentration {
 
 /* Obsolete Template */
 .sheet-rolltemplate-simple .sheet-containerold {
-  background: url("https://github.com/NidomeUK/roll20-character-sheets/blob/master/Arcanis%205e/images/fullbox.png") top left; }
+  background: url("https://i.ibb.co/9h9YvbL/fullbox.png" alt="fullbox") top left; }
 
 /* Obsolete Template */
 .sheet-rolltemplate-atk .sheet-containerold,
 .sheet-rolltemplate-atkdmg .sheet-container.sheet-atkold,
 .sheet-rolltemplate-dmg .sheet-atkold {
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/4RCRsAd.png") top left; }
+  background: url("https://i.ibb.co/yX390dK/topbox.png" alt="topbox") top left; }
 
 /* Obsolete Template */
 .sheet-rolltemplate-dmg .sheet-containerold,
 .sheet-rolltemplate-atkdmg .sheet-container.sheet-damagetemplateold {
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/gw9HTsq.png") top left; }
+  background: url("https://i.ibb.co/5TpL6pZ/bottombox.png" alt="bottombox") top left; }
 
 .sheet-rolltemplate-atkdmg .sheet-damagetemplate .sheet-result,
 .sheet-rolltemplate-dmg .sheet-damagetemplate .sheet-result {
@@ -2073,7 +2073,7 @@ span.sheet-spellconcentration {
 .sheet-rolltemplate-dmg .sheet-descold {
   background-repeat: no-repeat;
   background-size: 14em 100%;
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/4988JS0.png") top left;
+  background: url("https://i.ibb.co/J5Xz1Vv/midbox.png") top left;
   color: black;
   padding-bottom: 5px;
   padding-top: 5px;
