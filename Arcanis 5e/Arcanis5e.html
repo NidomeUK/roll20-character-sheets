@@ -250,7 +250,7 @@
                     <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                     <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                     <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                    <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                    <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                 </select>
             </div>
             <div class="npcspelloptions">
@@ -920,7 +920,7 @@
                                         <option value="Intelligence" data-i18n="int-u">INT</option>
                                         <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                         <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                        <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                        <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                     </select>
                                     <span data-i18n="effect:-u">EFFECT:</span>
                                     <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="npc-atk-effect-place">
@@ -1120,7 +1120,7 @@
                     </div>
                 </div>
                 <div class="attr-container">
-                    <button type="roll" name="roll_bloodrank" value="@{wtype}&{template:simple} {{rname=^{bloodrank-u}}} {{mod=@{bloodrank_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{bloodrank_mod}@{jack_attr}[BR]]]}} @{rtype}+@{bloodrank_mod}@{jack_attr}[CHA]]]}} @{charname_output} {{licensedsheet=@{licensedsheet}}}" data-i18n="bloodrank-u">BLOOD RANK</button>
+                    <button type="roll" name="roll_bloodrank" value="@{wtype}&{template:simple} {{rname=^{bloodrank-u}}} {{mod=@{bloodrank_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{bloodrank_mod}@{jack_attr}[BR]]]}} @{rtype}+@{bloodrank_mod}@{jack_attr}[CHA]]]}} @{charname_output} {{licensedsheet=@{licensedsheet}}}" data-i18n="bloodrank-u">BLOODRANK</button>
                     <span class="attr" name="attr_bloodrank_mod" title="@{bloodrank_mod}">0</span>
                     <div class="attr-mod">
                         <input class="baseattr" type="text" name="attr_bloodrank_base" title="@{bloodrank}" value="10">
@@ -1354,8 +1354,8 @@
                                     <option value="@{intelligence_mod}" data-i18n="intelligence-u">INTELLIGENCE</option>
                                     <option value="@{wisdom_mod}" data-i18n="wisdom-u">WISDOM</option>
                                     <option value="@{charisma_mod}" data-i18n="charisma-u">CHARISMA</option>
-                                    <option value="@{bloodrank_mod}" data-i18n="bloodrank-u">BLOOD RANK</option>
-                                    <option value="?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}|BloodRank,@{bloodrank_mod}}" data-i18n="query-attr-u">QUERY ATTRIBUTE</option>
+                                    <option value="@{bloodrank_mod}" data-i18n="bloodrank-u">BLOODRANK</option>
+                                    <option value="?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}|Bloodrank,@{bloodrank_mod}}" data-i18n="query-attr-u">QUERY ATTRIBUTE</option>
                                 </select>
                                 <span data-i18n="mods:-u">MODS:</span>
                                 <input type="text" class="num" name="attr_tool_mod" title="@{tool_mod}" value="0">
@@ -1609,7 +1609,7 @@
                                     <option value="Intelligence" data-i18n="int-u">INT</option>
                                     <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                     <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    <option value="BloodRank" data-i18n="blo-u">CHA</option>
+                                    <option value="Bloodrank" data-i18n="blo-u">CHA</option>
                                 </select>
                                 <span data-i18n="vs-dc:-u">VS DC:</span>
                                 <select name="attr_savedc">
@@ -2042,7 +2042,7 @@
                     <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                     <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                     <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                    <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                    <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                 </select>
                 <span class="label" data-i18n="spell-ability-u">SPELLCASTING ABILITY</span>
             </div>
@@ -2155,7 +2155,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -2209,7 +2209,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -2420,7 +2420,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -2474,7 +2474,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -2681,7 +2681,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -2735,7 +2735,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -2945,7 +2945,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -2999,7 +2999,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -3206,7 +3206,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -3260,7 +3260,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -3467,7 +3467,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -3521,7 +3521,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -3731,7 +3731,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -3785,7 +3785,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -3992,7 +3992,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -4046,7 +4046,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -4253,7 +4253,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -4307,7 +4307,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -4514,7 +4514,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -4568,7 +4568,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
+                                            <option value="Bloodrank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -4902,7 +4902,7 @@
                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
+                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOODRANK</option>
                     </select>
                 </div>
                 <div class="row">
@@ -5020,7 +5020,7 @@
                     <span>+</span><input type="text" class="num" name="attr_charisma_bonus" value="0" placeholder="0" title="@{charisma_bonus}">
                 </div>
                 <div class="row skill">
-                    <span data-i18n="bloodrank-u">BLOOD RANK</span>
+                    <span data-i18n="bloodrank-u">BLOODRANK</span>
                     <span>+</span><input type="text" class="num" name="attr_bloodrank_bonus" value="0" placeholder="0" title="@{bloodrank_bonus}">
                 </div>
                 <div class="row">
@@ -5060,7 +5060,7 @@
                         <option value="Intelligence" data-i18n="int-u">INT</option>
                         <option value="Wisdom" data-i18n="wis-u">WIS</option>
                         <option value="Charisma" data-i18n="cha-u">CHA</option>
-                        <option value="BloodRank" data-i18n="blo-u">BR</option>
+                        <option value="Bloodrank" data-i18n="blo-u">BR</option>
                     </select>
                     <span>+</span>
                     <select name="attr_custom_ac_part2">
@@ -5071,7 +5071,7 @@
                         <option value="Intelligence" data-i18n="int-u">INT</option>
                         <option value="Wisdom" data-i18n="wis-u">WIS</option>
                         <option value="Charisma" data-i18n="cha-u">CHA</option>
-                        <option value="BloodRank" data-i18n="blo-u">BR</option>
+                        <option value="Bloodrank" data-i18n="blo-u">BR</option>
                     </select><br>
                     <input type="checkbox" name="attr_custom_ac_shield" value="yes" checked>
                     <span data-i18n="allow-shields-u">ALLOW SHIELDS?</span>
@@ -7691,7 +7691,7 @@
                 var query = false;
                 if(v["repeating_tool_" + tool_id + "_toolattr_base"] && v["repeating_tool_" + tool_id + "_toolattr_base"].substring(0,2) === "?{") {
                     update["repeating_tool_" + tool_id + "_toolattr"] = "QUERY";
-                    var mod = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}|BloodRank,@{bloodrank_mod}}";
+                    var mod = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}|Bloodrank,@{bloodrank_mod}}";
                     if(v["repeating_tool_" + tool_id + "_tool_mod"]) {
                         mod = mod + "+" + v["repeating_tool_" + tool_id + "_tool_mod"];
                     }
@@ -8462,7 +8462,7 @@
                 });
                 if(!existing.toolname) repeating.tool[newrowid] = {toolname: page.name.toLowerCase()}
                 update[`repeating_tool_${newrowid}_toolname`] = page.name;
-                if(!existing.base) update[`repeating_tool_${newrowid}_toolattr_base`] = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|BloodRank,@{bloodrank_mod}}";
+                if(!existing.base) update[`repeating_tool_${newrowid}_toolattr_base`] = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Bloodrank,@{bloodrank_mod}}";
                 update[`repeating_tool_${newrowid}_options-flag`] = 0;
                 if(page.data["toolbonus_base"]) update[`repeating_tool_${newrowid}_toolbonus_base`] = "(@{pb}*2)";
                 repeating.prof_names.push(page.name.toLowerCase());
@@ -8657,7 +8657,7 @@
                             });
                             if(!existing.toolname) repeating.tool[newrowid] = {toolname: prof.toLowerCase()}
                             update["repeating_tool_" + newrowid + "_toolname"] = prof;
-                            if(!existing.base) update["repeating_tool_" + newrowid + "_toolattr_base"] = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|BloodRank,@{bloodrank_mod}}";
+                            if(!existing.base) update["repeating_tool_" + newrowid + "_toolattr_base"] = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Bloodrank,@{bloodrank_mod}}";
                             update["repeating_tool_" + newrowid + "_options-flag"] = 0;
                             repeating.prof_names.push(page.name.toLowerCase());
                             callbacks.push( function() {update_tool(newrowid);} );
@@ -10064,7 +10064,7 @@
     const update_class = () => {
         getAttrs(["class", "base_level","custom_class","cust_hitdietype","cust_spellcasting_ability","cust_strength_save_prof","cust_dexterity_save_prof","cust_constitution_save_prof","cust_intelligence_save_prof","cust_wisdom_save_prof","cust_charisma_save_prof","cust_bloodrank_save_prof","npc"], (v) => {
             if (v.npc && v.npc == "1") { return; }
-            const abilites = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma", "BloodRank"];
+            const abilites = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma", "Bloodrank"];
             //Custom Classes
             if (v.custom_class && v.custom_class != "0") {
                 update = {};
@@ -11359,7 +11359,7 @@
     /*********************************************************************/
 
     var proficiencyList = ["Weapon", "Armor", "Skill", "Tool", "Language"];
-    var abilityList = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma", "BloodRank"];
+    var abilityList = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma", "Bloodrank"];
     var changeListeners = "mancerchange:race_ability_choice1 mancerchange:race_ability_choice2 mancerchange:subrace_ability_choice1 mancerchange:subrace_ability_choice2 mancerchange:custom_hit_die mancerchange:feat_ability_choice";
     var proficiencyNum = 4;
     var customListeners = "";
@@ -17413,7 +17413,7 @@
             <span class="charisma_total">-</span>
         </div>
         <div class="sheet-attr-container">
-            <h4 data-i18n="bloodrank">BloodRank</h4>
+            <h4 data-i18n="bloodrank">Bloodrank</h4>
             <span class="bloodrank_total">-</span>
         </div>
     </div>
@@ -17451,7 +17451,7 @@
             <span class="charisma_total">-</span>
         </div>
         <div class="sheet-attr-container">
-            <h4 data-i18n="bloodrank">BloodRank</h4>
+            <h4 data-i18n="bloodrank">Bloodrank</h4>
             <span class="bloodrank_total">-</span>
         </div>
     </div>
@@ -17645,7 +17645,7 @@
                     <button type="action" class="spinner up-spinner" name="act_bloodrank_u">+</button>
                     <button type="action" class="spinner down-spinner" name="act_bloodrank_d">-</button>
                 </div>
-                <h5 data-i18n="bloodrank">BloodRank</h5>
+                <h5 data-i18n="bloodrank">Bloodrank</h5>
             </div>
         </div>
     </div>
@@ -17728,7 +17728,7 @@
                             <option value="intelligence" data-i18n="intelligence">Intelligence</option>
                             <option value="wisdom" data-i18n="wisdom">Wisdom</option>
                             <option value="charisma" data-i18n="charisma">Charisma</option>
-                            <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
+                            <option value="bloodrank" data-i18n="bloodrank">Bloodrank</option>
                         </select>
                         <select class="choice race_possible race_ability_choice2" name="comp_race_ability_choice2">
                             <option value="" data-i18n="choose">Choose</option>
@@ -17738,7 +17738,7 @@
                             <option value="intelligence" data-i18n="intelligence">Intelligence</option>
                             <option value="wisdom" data-i18n="wisdom">Wisdom</option>
                             <option value="charisma" data-i18n="charisma">Charisma</option>
-                            <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
+                            <option value="bloodrank" data-i18n="bloodrank">Bloodrank</option>
                         </select>
                         <label class="choice custom_race"><span data-i18n="strength">Strength:</span>
                             <input class="choice custom_race" type="number" name="comp_race_custom_strength" value="0" min="-5" max="5">
@@ -17758,7 +17758,7 @@
                         <label class="choice custom_race"><span data-i18n="charisma">Charisma:</span>
                             <input class="choice custom_race" type="number" name="comp_race_custom_charisma" value="0" min="-5" max="5">
                         </label>
-                        <label class="choice custom_race"><span data-i18n="bloodrank">BloodRank:</span>
+                        <label class="choice custom_race"><span data-i18n="bloodrank">Bloodrank:</span>
                             <input class="choice custom_race" type="number" name="comp_race_custom_bloodrank" value="0" min="-5" max="5">
                         </label>
                     </label>
@@ -17830,7 +17830,7 @@
                                     <option value="intelligence" data-i18n="intelligence">Intelligence</option>
                                     <option value="wisdom" data-i18n="wisdom">Wisdom</option>
                                     <option value="charisma" data-i18n="charisma">Charisma</option>
-                                    <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
+                                    <option value="bloodrank" data-i18n="bloodrank">Bloodrank</option>
                                 </select>
                                 <select class="choice subrace_possible subrace_ability_choice2" name="comp_subrace_ability_choice2">
                                     <option value="" data-i18n="choose">Choose</option>
@@ -17840,7 +17840,7 @@
                                     <option value="intelligence" data-i18n="intelligence">Intelligence</option>
                                     <option value="wisdom" data-i18n="wisdom">Wisdom</option>
                                     <option value="charisma" data-i18n="charisma">Charisma</option>
-                                    <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
+                                    <option value="bloodrank" data-i18n="bloodrank">Bloodrank</option>
                                 </select>
                                 <label class="choice custom_subrace"><span data-i18n="strength:">Strength:</span>
                                     <input class="choice custom_subrace" type="number" name="comp_subrace_custom_strength" value="0" min="-5" max="5">
@@ -17882,7 +17882,7 @@
                                 <option value="Intelligence" data-i18n="intelligence">Intelligence</option>
                                 <option value="Wisdom" data-i18n="wisdom">Wisdom</option>
                                 <option value="Charisma" data-i18n="charisma">Charisma</option>
-                                <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
+                                <option value="bloodrank" data-i18n="bloodrank">Bloodrank</option>
                             </select>
                         </label>
                         <label class="hilite choice custom_spellcasting"><span data-i18n="number-of-cantrips">Number of Cantrips:</span>
@@ -18001,7 +18001,7 @@
                                 <option value="Intelligence" data-i18n="intelligence">Intelligence</option>
                                 <option value="Wisdom" data-i18n="wisdom">Wisdom</option>
                                 <option value="Charisma" data-i18n="charisma">Charisma</option>
-                                <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
+                                <option value="bloodrank" data-i18n="bloodrank">Bloodrank</option>
                             </select>
                         </label>
                         <label class="hilite choice custom_spellcasting"><span data-i18n="number-of-cantrips">Number of Cantrips:</span>
@@ -18156,7 +18156,7 @@
                             <span class="abilities_radio_charisma" name="comp_charisma" required></span>
                         </div>
                         <div>
-                            <span class="label" data-i18n="bloodrank">BloodRank:</span>
+                            <span class="label" data-i18n="bloodrank">Bloodrank:</span>
                             <span class="abilities_radio_bloodrank" name="comp_bloodrank" required></span>
                         </div>
                     </div>
@@ -18192,7 +18192,7 @@
                             <input type="number" name="comp_charisma" min="0" max="20" required>
                         </div>
                         <div>
-                            <span class="label" data-i18n="bloodrank">BloodRank:</span>
+                            <span class="label" data-i18n="bloodrank">Bloodrank:</span>
                             <input type="number" name="comp_bloodrank" min="0" max="20" required>
                         </div>
                     </div>
