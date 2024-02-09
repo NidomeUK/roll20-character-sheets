@@ -64,8 +64,8 @@
             <input class="num" type="text" name="attr_wisdom_base" value="10">
             <span data-i18n="cha-u">CHA</span>
             <input class="num" type="text" name="attr_charisma_base" value="10">
-            <span data-i18n="blo-u">BRk</span>
-            <input class="num" type="text" name="attr_blood_rank_base" value="0">
+            <span data-i18n="blo-u">BR</span>
+            <input class="num" type="text" name="attr_bloodrank_base" value="10">
         </div>
         <div class="spacer"></div>
         <div class="row">
@@ -135,6 +135,10 @@
                     <span data-i18n="investigation-u">INVESTIGATION</span>
                     <input class="num" type="text" name="attr_npc_investigation_base" placeholder="0">
                 </div>
+                <div class="row" data-i18n-list-item="linguistics">
+                    <span data-i18n="linguistics-u">LINGUISTICS</span>
+                    <input class="num" type="text" name="attr_npc_linguistics_base" placeholder="0">
+                </div>
                 <div class="row" data-i18n-list-item="medicine">
                     <span data-i18n="medicine-u">MEDICINE</span>
                     <input class="num" type="text" name="attr_npc_medicine_base" placeholder="0">
@@ -155,6 +159,10 @@
                 </div>
                 <div class="row" data-i18n-list-item="persuasion">
                     <span data-i18n="persuasion-u">PERSUASION</span>
+                    <input class="num" type="text" name="attr_npc_persuasion_base" placeholder="0">
+                </div>
+                <div class="row" data-i18n-list-item="psionics">
+                    <span data-i18n="psionics-u">PSIONICS</span>
                     <input class="num" type="text" name="attr_npc_persuasion_base" placeholder="0">
                 </div>
                 <div class="row" data-i18n-list-item="religion">
@@ -183,11 +191,13 @@
             <input type="hidden" name="attr_npc_insight" value="@{wisdom_mod}">
             <input type="hidden" name="attr_npc_intimidation" value="@{charisma_mod}">
             <input type="hidden" name="attr_npc_investigation" value="@{intelligence_mod}">
+            <input type="hidden" name="attr_npc_linguistics" value="@{intelligence_mod}">
             <input type="hidden" name="attr_npc_medicine" value="@{wisdom_mod}">
             <input type="hidden" name="attr_npc_nature" value="@{intelligence_mod}">
             <input type="hidden" name="attr_npc_perception" value="@{wisdom_mod}">
             <input type="hidden" name="attr_npc_performance" value="@{charisma_mod}">
             <input type="hidden" name="attr_npc_persuasion" value="@{charisma_mod}">
+            <input type="hidden" name="attr_npc_psionics" value="@{intelligence_mod}">
             <input type="hidden" name="attr_npc_religion" value="@{intelligence_mod}">
             <input type="hidden" name="attr_npc_sleight_of_hand" value="@{dexterity_mod}">
             <input type="hidden" name="attr_npc_stealth" value="@{dexterity_mod}">
@@ -240,7 +250,7 @@
                     <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                     <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                     <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                    <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                    <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                 </select>
             </div>
             <div class="npcspelloptions">
@@ -396,11 +406,11 @@
                 </button>
             </div>
             <div class="attr-container">
-                <button type="roll" name="roll_npc_blo" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{blood_rank}}} {{mod=[[[[@{blood_rank_mod}]][BRk]]]}} {{r1=[[@{d20}+[[@{blood_rank_mod}]][BRk]]]}} @{rtype}+[[@{blood_rank_mod}]][BRk]]]}} {{type=Ability}}">
-                    <span class="bold" data-i18n="blo-u">BRk</span>
-                    <span name="attr_blood_rank"></span>
+                <button type="roll" name="roll_npc_blo" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{bloodrank}}} {{mod=[[[[@{bloodrank_mod}]][BR]]]}} {{r1=[[@{d20}+[[@{bloodrank_mod}]][BR]]]}} @{rtype}+[[@{bloodrank_mod}]][BR]]]}} {{type=Ability}}">
+                    <span class="bold" data-i18n="blo-u">BR</span>
+                    <span name="attr_bloodrank"></span>
                     <input class="negativeflag" type="hidden" name="attr_npc_blo_negative" value="0">
-                    <span class="npcattr" name="attr_blood_rank_mod"></span>
+                    <span class="npcattr" name="attr_bloodrank_mod"></span>
                 </button>
             </div>
         </div>
@@ -505,6 +515,13 @@
                     <span class="stat" name="attr_npc_investigation"></span>
                 </button>
             </span>
+            <span data-i18n-list-item="linguistics">
+                <input class="flag" type="hidden" name="attr_npc_linguistics_flag" value="0">
+                <button type="roll" name="roll_npc_linguistics" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{linguistics}}} {{mod=@{npc_linguistics}}} {{r1=[[@{d20}+@{npc_linguistics}]]}} @{rtype}+@{npc_linguistics}]]}} {{type=Skill}}">
+                    <span data-i18n="linguistics">Linguistics</span>
+                    <span class="stat" name="attr_npc_linguistics"></span>
+                </button>
+            </span>
             <span data-i18n-list-item="medicine">
                 <input class="flag" type="hidden" name="attr_npc_medicine_flag" value="0">
                 <button type="roll" name="roll_npc_medicine" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{medicine}}} {{mod=@{npc_medicine}}} {{r1=[[@{d20}+@{npc_medicine}]]}} @{rtype}+@{npc_medicine}]]}} {{type=Skill}}">
@@ -538,6 +555,13 @@
                 <button type="roll" name="roll_npc_persuasion" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{persuasion}}} {{mod=@{npc_persuasion}}} {{r1=[[@{d20}+@{npc_persuasion}]]}} @{rtype}+@{npc_persuasion}]]}} {{type=Skill}}">
                     <span data-i18n="persuasion">Persuasion</span>
                     <span class="stat" name="attr_npc_persuasion"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="psionics">
+                <input class="flag" type="hidden" name="attr_npc_psionics_flag" value="0">
+                <button type="roll" name="roll_npc_psionics" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{psionics}}} {{mod=@{npc_psionics}}} {{r1=[[@{d20}+@{npc_psionics}]]}} @{rtype}+@{npc_psionics}]]}} {{type=Skill}}">
+                    <span data-i18n="psionics">Psionics</span>
+                    <span class="stat" name="attr_npc_psionics"></span>
                 </button>
             </span>
             <span data-i18n-list-item="religion">
@@ -896,6 +920,7 @@
                                         <option value="Intelligence" data-i18n="int-u">INT</option>
                                         <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                         <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                        <option value="BloodRank" data-i18n="blo-u">BR</option>
                                     </select>
                                     <span data-i18n="effect:-u">EFFECT:</span>
                                     <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="npc-atk-effect-place">
@@ -964,7 +989,7 @@
     <div class="page core">
     <div class="header">
         <div class="name-container">
-            <img src="https://i.ibb.co/4WgcH1p/arcanislogo.png" style="padding-bottom: 5px;" alt="Arcanis5e">
+            <img src="https://raw.githubusercontent.com/NidomeUK/CharSheetImages/master/images/arcanislogo.png" style="padding-bottom: 5px;" alt="Arcanis 5e">
             <input type="text" name="attr_character_name" style="width: 100%;">
             <span class="label" data-i18n="char-name-u">CHARACTER NAME</span>
         </div>
@@ -1094,6 +1119,16 @@
                         <span class="finalattr" name="attr_charisma"></span>
                     </div>
                 </div>
+                <div class="attr-container">
+                    <button type="roll" name="roll_bloodrank" value="@{wtype}&{template:simple} {{rname=^{bloodrank-u}}} {{mod=@{bloodrank_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{bloodrank_mod}@{jack_attr}[BR]]]}} @{rtype}+@{bloodrank_mod}@{jack_attr}[CHA]]]}} @{charname_output} {{licensedsheet=@{licensedsheet}}}" data-i18n="bloodrank-u">BLOOD RANK</button>
+                    <span class="attr" name="attr_bloodrank_mod" title="@{bloodrank_mod}">0</span>
+                    <div class="attr-mod">
+                        <input class="baseattr" type="text" name="attr_bloodrank_base" title="@{bloodrank}" value="10">
+                        <input type="hidden" name="attr_bloodrank" value="10">
+                        <input class="attr-flag" type="hidden" name="attr_bloodrank_flag" value="0">
+                        <span class="finalattr" name="attr_bloodrank"></span>
+                    </div>
+                </div>
             </div>
             <div class="skills-saves-container">
                 <div class="insp-prof-container">
@@ -1218,6 +1253,11 @@
                             <span name='attr_investigation_bonus' title='@{investigation_bonus}'>0</span>
                             <button type='roll' name='roll_investigation' value='@{wtype}&{template:simple} {{rname=^{investigation-u}}} {{mod=@{investigation_bonus}}} {{r1=[[@{d20}+@{investigation_bonus}@{pbd_safe}]]}} @{rtype}+@{investigation_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='investigation-core'>Investigation <span>(Int)</span></button>
                         </div>
+                        <div class="skill" data-i18n-list-item="linguistics">
+                            <input type="checkbox" name="attr_linguistics_prof" title="@{linguistics_prof}" value="(@{pb}*@{linguistics_type})">
+                            <span name='attr_linguistics_bonus' title='@{linguistics_bonus}'>0</span>
+                            <button type='roll' name='roll_linguistics' value='@{wtype}&{template:simple} {{rname=^{linguistics-u}}} {{mod=@{linguistics_bonus}}} {{r1=[[@{d20}+@{linguistics_bonus}@{pbd_safe}]]}} @{rtype}+@{linguistics_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='linguistics-core'>Linguistics <span>(Int)</span></button>
+                        </div>
                         <div class="skill" data-i18n-list-item="medicine">
                             <input type="checkbox" name="attr_medicine_prof" title="@{medicine_prof}" value="(@{pb}*@{medicine_type})">
                             <span name='attr_medicine_bonus' title='@{medicine_bonus}'>0</span>
@@ -1242,6 +1282,11 @@
                             <input type="checkbox" name="attr_persuasion_prof" title="@{persuasion_prof}" value="(@{pb}*@{persuasion_type})">
                             <span name='attr_persuasion_bonus' title='@{persuasion_bonus}'>0</span>
                             <button type='roll' name='roll_persuasion' value='@{wtype}&{template:simple} {{rname=^{persuasion-u}}} {{mod=@{persuasion_bonus}}} {{r1=[[@{d20}+@{persuasion_bonus}@{pbd_safe}]]}} @{rtype}+@{persuasion_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='persuasion-core'>Persuasion <span>(Wis)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="psionics">
+                            <input type="checkbox" name="attr_psionics_prof" title="@{psionics_prof}" value="(@{pb}*@{psionics_type})">
+                            <span name='attr_psionics_bonus' title='@{psionics_bonus}'>0</span>
+                            <button type='roll' name='roll_psionics' value='@{wtype}&{template:simple} {{rname=^{psionics-u}}} {{mod=@{psionics_bonus}}} {{r1=[[@{d20}+@{psionics_bonus}@{pbd_safe}]]}} @{rtype}+@{psionics_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='psionics-core'>Psionics <span>(Int)</span></button>
                         </div>
                         <div class="skill" data-i18n-list-item="religion">
                             <input type="checkbox" name="attr_religion_prof" title="@{religion_prof}" value="(@{pb}*@{religion_type})">
@@ -1309,7 +1354,8 @@
                                     <option value="@{intelligence_mod}" data-i18n="intelligence-u">INTELLIGENCE</option>
                                     <option value="@{wisdom_mod}" data-i18n="wisdom-u">WISDOM</option>
                                     <option value="@{charisma_mod}" data-i18n="charisma-u">CHARISMA</option>
-                                    <option value="?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}}" data-i18n="query-attr-u">QUERY ATTRIBUTE</option>
+                                    <option value="@{bloodrank_mod}" data-i18n="bloodrank-u">BLOOD RANK</option>
+                                    <option value="?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}|BloodRank,@{bloodrank_mod}}" data-i18n="query-attr-u">QUERY ATTRIBUTE</option>
                                 </select>
                                 <span data-i18n="mods:-u">MODS:</span>
                                 <input type="text" class="num" name="attr_tool_mod" title="@{tool_mod}" value="0">
@@ -1483,7 +1529,7 @@
                                     <option value="@{intelligence_mod}" data-i18n="int-u">INT</option>
                                     <option value="@{wisdom_mod}" data-i18n="wis-u">WIS</option>
                                     <option value="@{charisma_mod}" data-i18n="cha-u">CHA</option>
-                                    <option value="@{blood_rank_mod}" data-i18n="blo-u">BRk</option>
+                                    <option value="@{bloodrank_mod}" data-i18n="blo-u">BR</option>
                                     <option value="spell" data-i18n="spell-u">SPELL</option>
                                     <option value="0">-</option>
                                 </select>
@@ -1515,7 +1561,7 @@
                                     <option value="@{intelligence_mod}" data-i18n="int-u">INT</option>
                                     <option value="@{wisdom_mod}" data-i18n="wis-u">WIS</option>
                                     <option value="@{charisma_mod}" data-i18n="cha-u">CHA</option>
-                                    <option value="@{blood_rank_mod}" data-i18n="blo-u">BRk</option>
+                                    <option value="@{bloodrank_mod}" data-i18n="blo-u">BR</option>
                                     <option value="spell" data-i18n="spell-u">SPELL</option>
                                     <option value="0">-</option>
                                 </select>
@@ -1540,7 +1586,7 @@
                                     <option value="@{intelligence_mod}" data-i18n="int-u">INT</option>
                                     <option value="@{wisdom_mod}" data-i18n="wis-u">WIS</option>
                                     <option value="@{charisma_mod}" data-i18n="cha-u">CHA</option>
-                                    <option value="@{blood_rank_mod}" data-i18n="blo-u">BRk</option>
+                                    <option value="@{bloodrank_mod}" data-i18n="blo-u">BR</option>
                                     <option value="spell" data-i18n="spell-u">SPELL</option>
                                     <option value="0" selected="selected">-</option>
                                 </select>
@@ -1563,6 +1609,7 @@
                                     <option value="Intelligence" data-i18n="int-u">INT</option>
                                     <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                     <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                    <option value="BloodRank" data-i18n="blo-u">CHA</option>
                                 </select>
                                 <span data-i18n="vs-dc:-u">VS DC:</span>
                                 <select name="attr_savedc">
@@ -1573,7 +1620,7 @@
                                     <option value="(@{intelligence_mod}+8+@{spell_dc_mod}+@{pb})" data-i18n="int-u">INT</option>
                                     <option value="(@{wisdom_mod}+8+@{spell_dc_mod}+@{pb})" data-i18n="wis-u">WIS</option>
                                     <option value="(@{charisma_mod}+8+@{spell_dc_mod}+@{pb})" data-i18n="cha-u">CHA</option>
-                                    <option value="(@{blood_rank_mod}+8+@{spell_dc_mod}+@{pb})" data-i18n="blo-u">CHA</option>
+                                    <option value="(@{bloodrank_mod}+8+@{spell_dc_mod}+@{pb})" data-i18n="blo-u">BR</option>
                                     <option value="(@{saveflat})" data-i18n="flat-u">FLAT</option>
                                 </select>
                                 <input class="flatflag" type="hidden" name="attr_savedc">
@@ -1913,7 +1960,7 @@
     </div>
     <div class="page bio">    <div class="header">
         <div class="name-container">
-            <img src="https://i.ibb.co/4WgcH1p/arcanislogo.png" style="padding-bottom: 5px;" alt="Arcanis5e">
+            <img src="https://raw.githubusercontent.com/NidomeUK/CharSheetImages/master/images/arcanislogo.png" style="padding-bottom: 5px;" alt="Arcanis 5e">
             <input type="text" name="attr_character_name" style="width: 100%;">
             <span class="label" data-i18n="char-name-u">CHARACTER NAME</span>
         </div>
@@ -1981,7 +2028,7 @@
     </div>
     <div class="page spells">    <div class="header">
         <div class="name-container">
-            <img src="https://i.ibb.co/4WgcH1p/arcanislogo.png" style="padding-bottom: 5px;" alt="Arcanis5e">
+            <img src="https://raw.githubusercontent.com/NidomeUK/CharSheetImages/master/images/arcanislogo.png" style="padding-bottom: 5px;" alt="Arcanis 5e">
             <input type="text" name="attr_character_name" style="width: 100%;">
             <span class="label" data-i18n="char-name-u">CHARACTER NAME</span>
         </div>
@@ -1995,7 +2042,7 @@
                     <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                     <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                     <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                    <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                    <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                 </select>
                 <span class="label" data-i18n="spell-ability-u">SPELLCASTING ABILITY</span>
             </div>
@@ -2108,7 +2155,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -2162,6 +2209,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -2372,7 +2420,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -2426,6 +2474,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -2632,7 +2681,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -2686,6 +2735,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -2895,7 +2945,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -2949,6 +2999,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -3155,7 +3206,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -3209,6 +3260,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -3415,7 +3467,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -3469,6 +3521,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -3678,7 +3731,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -3732,6 +3785,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -3938,7 +3992,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -3992,6 +4046,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -4198,7 +4253,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -4252,6 +4307,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -4458,7 +4514,7 @@
                                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -4512,6 +4568,7 @@
                                             <option value="Intelligence" data-i18n="int-u">INT</option>
                                             <option value="Wisdom" data-i18n="wis-u">WIS</option>
                                             <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                            <option value="BloodRank" data-i18n="blo-u">BR</option>
                                         </select>
                                         <span data-i18n="effect:-u">EFFECT:</span>
                                         <input type="text" name="attr_spellsavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
@@ -4622,7 +4679,7 @@
     </div>
     <div class="page options">    <div class="header">
         <div class="name-container">
-            <img src="https://i.ibb.co/4WgcH1p/arcanislogo.png" style="padding-bottom: 5px;" alt="Arcanis5e">
+            <img src="https://raw.githubusercontent.com/NidomeUK/CharSheetImages/master/images/arcanislogo.png" style="padding-bottom: 5px;" alt="Arcanis 5e">
             <input type="text" name="attr_character_name" style="width: 100%;">
             <span class="label" data-i18n="char-name-u">CHARACTER NAME</span>
         </div>
@@ -4845,7 +4902,7 @@
                         <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
                         <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
                         <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                        <option value="@{blood_rank_mod}+" data-i18n="blood-rank-u">BLOOD RANK</option>
+                        <option value="@{bloodrank_mod}+" data-i18n="bloodrank-u">BLOOD RANK</option>
                     </select>
                 </div>
                 <div class="row">
@@ -4962,6 +5019,10 @@
                     <span data-i18n="charisma-u">CHARISMA</span>
                     <span>+</span><input type="text" class="num" name="attr_charisma_bonus" value="0" placeholder="0" title="@{charisma_bonus}">
                 </div>
+                <div class="row skill">
+                    <span data-i18n="bloodrank-u">BLOOD RANK</span>
+                    <span>+</span><input type="text" class="num" name="attr_bloodrank_bonus" value="0" placeholder="0" title="@{bloodrank_bonus}">
+                </div>
                 <div class="row">
                     <span data-i18n="initiative-mod:-u">INITIATIVE MODIFIER:</span>
                     <input type="text" class="num" name="attr_initmod" placeholder="0" value="0">
@@ -4999,6 +5060,7 @@
                         <option value="Intelligence" data-i18n="int-u">INT</option>
                         <option value="Wisdom" data-i18n="wis-u">WIS</option>
                         <option value="Charisma" data-i18n="cha-u">CHA</option>
+                        <option value="BloodRank" data-i18n="blo-u">BR</option>
                     </select>
                     <span>+</span>
                     <select name="attr_custom_ac_part2">
@@ -5009,6 +5071,7 @@
                         <option value="Intelligence" data-i18n="int-u">INT</option>
                         <option value="Wisdom" data-i18n="wis-u">WIS</option>
                         <option value="Charisma" data-i18n="cha-u">CHA</option>
+                        <option value="BloodRank" data-i18n="blo-u">BR</option>
                     </select><br>
                     <input type="checkbox" name="attr_custom_ac_shield" value="yes" checked>
                     <span data-i18n="allow-shields-u">ALLOW SHIELDS?</span>
@@ -5121,6 +5184,11 @@
                         <span data-i18n="investigation-core">Investigation <span>(Int)</span></span>
                         <span>+</span><input type="text" class="num" name="attr_investigation_flat" value="0" placeholder="0" title="@{investigation_flat}">
                     </div>
+                    <div class="row skill" data-i18n-list-item="linguistics">
+                        <select name="attr_linguistics_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="linguistics-core">Linguistics <span>(Int)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_linguistics_flat" value="0" placeholder="0" title="@{linguistics_flat}">
+                    </div>
                     <div class="row skill" data-i18n-list-item="medicine">
                         <select name="attr_medicine_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
                         <span data-i18n="medicine-core">Medicine <span>(Wis)</span></span>
@@ -5145,6 +5213,11 @@
                         <select name="attr_persuasion_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
                         <span data-i18n="persuasion-core">Persuasion <span>(Cha)</span></span>
                         <span>+</span><input type="text" class="num" name="attr_persuasion_flat" value="0" placeholder="0" title="@{persuasion_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="psionics">
+                        <select name="attr_psionics_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="psionics-core">Psionics <span>(Int)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_psionics_flat" value="0" placeholder="0" title="@{psionics_flat}">
                     </div>
                     <div class="row skill" data-i18n-list-item="religion">
                         <select name="attr_religion_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
@@ -5391,7 +5464,7 @@
 <input type="hidden" name="attr_intelligence_mod" value="0">
 <input type="hidden" name="attr_wisdom_mod" value="0">
 <input type="hidden" name="attr_charisma_mod" value="0">
-<input type="hidden" name="attr_blood_rank_mod" value="0">
+<input type="hidden" name="attr_bloodrank_mod" value="0">
 
 <input type="hidden" name="attr_strength_save_bonus" value="0">
 <input type="hidden" name="attr_dexterity_save_bonus" value="0">
@@ -5406,6 +5479,7 @@
 <input type="hidden" name="attr_intelligence_maximum" value="20">
 <input type="hidden" name="attr_wisdom_maximum" value="20">
 <input type="hidden" name="attr_charisma_maximum" value="20">
+<input type="hidden" name="attr_bloodrank_maximum" value="20">
 
 <input type='hidden' name='attr_acrobatics_bonus' value='0'>
 <input type='hidden' name='attr_animal_handling_bonus' value='0'>
@@ -5416,11 +5490,13 @@
 <input type='hidden' name='attr_insight_bonus' value='0'>
 <input type='hidden' name='attr_intimidation_bonus' value='0'>
 <input type='hidden' name='attr_investigation_bonus' value='0'>
+<input type='hidden' name='attr_linguistics_bonus' value='0'>
 <input type='hidden' name='attr_medicine_bonus' value='0'>
 <input type='hidden' name='attr_nature_bonus' value='0'>
 <input type='hidden' name='attr_perception_bonus' value='0'>
 <input type='hidden' name='attr_performance_bonus' value='0'>
 <input type='hidden' name='attr_persuasion_bonus' value='0'>
+<input type='hidden' name='attr_psionics_bonus' value='0'>
 <input type='hidden' name='attr_religion_bonus' value='0'>
 <input type='hidden' name='attr_sleight_of_hand_bonus' value='0'>
 <input type='hidden' name='attr_stealth_bonus' value='0'>
@@ -6742,14 +6818,14 @@
         });
     });
 
-    ['strength','dexterity','constitution','intelligence','wisdom','charisma'].forEach(attr => {
+    ['strength','dexterity','constitution','intelligence','wisdom','charisma','bloodrank'].forEach(attr => {
         on(`change:${attr}_base change:${attr}_bonus`, function() {
             update_attr(`${attr}`);
 
         });
     });
 
-    ['strength','dexterity','constitution','intelligence','wisdom','charisma'].forEach(attr => {
+    ['strength','dexterity','constitution','intelligence','wisdom','charisma','bloodrank'].forEach(attr => {
         on(`change:${attr}`, function() {
             update_mod(`${attr}`);
 
@@ -6761,7 +6837,7 @@
         });
     });
 
-    ['strength','dexterity','constitution','intelligence','wisdom','charisma'].forEach(attr => {
+    ['strength','dexterity','constitution','intelligence','wisdom','charisma','bloodrank'].forEach(attr => {
         on(`change:${attr}_mod`, function() {
             update_save(`${attr}`);
             update_attacks(`${attr}`);
@@ -6778,7 +6854,7 @@
                     update_initiative();
                     break;
                 case "intelligence":
-                    update_skills(["arcana", "history", "investigation", "nature", "religion"]);
+                    update_skills(["arcana", "history", "investigation", "linguistics", "nature", "psionics", "religion"]);
                     break;
                 case "wisdom":
                     update_skills(["animal_handling", "insight", "medicine", "perception", "survival"]);
@@ -6792,7 +6868,7 @@
         });
     });
 
-    ['strength','dexterity','constitution','intelligence','wisdom','charisma'].forEach(attr => {
+    ['strength','dexterity','constitution','intelligence','wisdom','charisma','bloodrank'].forEach(attr => {
         on(`change:${attr}_save_prof change:${attr}_save_mod`, function(eventinfo) {
             if(eventinfo.sourceType === "sheetworker") {return;};
             update_save(`${attr}`);
@@ -6809,8 +6885,8 @@
         update_save("death");
     });
 
-    ['acrobatics','animal_handling','arcana','athletics','deception','history','insight','intimidation','investigation',
-    'medicine','nature','perception','performance','persuasion','religion','sleight_of_hand','stealth','survival'].forEach(attr => {
+    ['acrobatics','animal_handling','arcana','athletics','deception','history','insight','intimidation','investigation','linguistics',
+    'medicine','nature','perception','performance','persuasion','psionics','religion','sleight_of_hand','stealth','survival'].forEach(attr => {
         on(`change:${attr}_prof change:${attr}_type change:${attr}_flat`, function(eventinfo) {
             if(eventinfo.sourceType === "sheetworker") {return;};
             update_skills([`${attr}`]);
@@ -7074,7 +7150,7 @@
         setAttrs(update, {silent: true});
     };
 
-    on("change:class change:custom_class change:cust_classname change:cust_hitdietype change:cust_spellcasting_ability change:cust_spellslots change:cust_strength_save_prof change:cust_dexterity_save_prof change:cust_constitution_save_prof change:cust_intelligence_save_prof change:cust_wisdom_save_prof change:cust_charisma_save_prof change:subclass change:multiclass1 change:multiclass1_subclass change:multiclass2 change:multiclass2_subclass change:multiclass3 change:multiclass3_subclass" , function(eventinfo) {
+    on("change:class change:custom_class change:cust_classname change:cust_hitdietype change:cust_spellcasting_ability change:cust_spellslots change:cust_strength_save_prof change:cust_dexterity_save_prof change:cust_constitution_save_prof change:cust_intelligence_save_prof change:cust_wisdom_save_prof change:cust_charisma_save_prof change:cust_bloodrank_prof change:subclass change:multiclass1 change:multiclass1_subclass change:multiclass2 change:multiclass2_subclass change:multiclass3 change:multiclass3_subclass" , function(eventinfo) {
         if(eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
             return;
         }
@@ -7153,7 +7229,7 @@
         update_npc_saves();
     });
 
-    on("change:npc_acrobatics_base change:npc_animal_handling_base change:npc_arcana_base change:npc_athletics_base change:npc_deception_base change:npc_history_base change:npc_insight_base change:npc_intimidation_base change:npc_investigation_base change:npc_medicine_base change:npc_nature_base change:npc_perception_base change:npc_performance_base change:npc_persuasion_base change:npc_religion_base change:npc_sleight_of_hand_base change:npc_stealth_base change:npc_survival_base", function(eventinfo) {
+    on("change:npc_acrobatics_base change:npc_animal_handling_base change:npc_arcana_base change:npc_athletics_base change:npc_deception_base change:npc_history_base change:npc_insight_base change:npc_intimidation_base change:npc_investigation_base change:npc_linguistics_base change:npc_medicine_base change:npc_nature_base change:npc_perception_base change:npc_performance_base change:npc_persuasion_base change:npc_psionics_base change:npc_religion_base change:npc_sleight_of_hand_base change:npc_stealth_base change:npc_survival_base", function(eventinfo) {
         update_npc_skills();
     });
 
@@ -7483,11 +7559,11 @@
 
     var update_all_ability_checks = function(){
         update_initiative();
-        update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
+        update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "linguistics", "nature", "psionics", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
     };
 
     var update_skills = function (skills_array) {
-        var skill_parent = {athletics: "strength", acrobatics: "dexterity", sleight_of_hand: "dexterity", stealth: "dexterity", arcana: "intelligence", history: "intelligence", investigation: "intelligence", nature: "intelligence", religion: "intelligence", animal_handling: "wisdom", insight: "wisdom", medicine: "wisdom", perception: "wisdom", survival: "wisdom", deception: "charisma", intimidation: "charisma", performance: "charisma", persuasion: "charisma"};
+        var skill_parent = {athletics: "strength", acrobatics: "dexterity", sleight_of_hand: "dexterity", stealth: "dexterity", arcana: "intelligence", history: "intelligence", investigation: "intelligence", linguistics: "intelligence", nature: "intelligence", psionics: "intelligence", religion: "intelligence", animal_handling: "wisdom", insight: "wisdom", medicine: "wisdom", perception: "wisdom", survival: "wisdom", deception: "charisma", intimidation: "charisma", performance: "charisma", persuasion: "charisma"};
         var attrs_to_get = ["pb","pb_type","jack_of_all_trades","jack"];
         var update = {};
         var callbacks = [];
@@ -7601,7 +7677,7 @@
     };
 
     var do_update_tool = function(tool_array) {
-        var tool_attribs = ["pb","pb_type","jack","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","blood_rank_mod"];
+        var tool_attribs = ["pb","pb_type","jack","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","bloodrank_mod"];
         var update = {};
         _.each(tool_array, function(tool_id) {
             tool_attribs.push("repeating_tool_" + tool_id + "_toolbonus_base");
@@ -7615,7 +7691,7 @@
                 var query = false;
                 if(v["repeating_tool_" + tool_id + "_toolattr_base"] && v["repeating_tool_" + tool_id + "_toolattr_base"].substring(0,2) === "?{") {
                     update["repeating_tool_" + tool_id + "_toolattr"] = "QUERY";
-                    var mod = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}}";
+                    var mod = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}|BloodRank,@{bloodrank_mod}}";
                     if(v["repeating_tool_" + tool_id + "_tool_mod"]) {
                         mod = mod + "+" + v["repeating_tool_" + tool_id + "_tool_mod"];
                     }
@@ -7745,7 +7821,7 @@
 
     var handle_drop = function(category, eventinfo) {
 
-        getAttrs(["speed", "drop_name", "drop_data", "drop_content", "character_id", "npc_legendary_actions", "strength_mod", "dexterity_mod", "npc", "base_level", "strength_base", "dexterity_base", "constitution_base", "wisdom_base", "intelligence_base", "charisma_base", "class_resource_name", "other_resource_name", "multiclass1_lvl", "multiclass2_lvl", "multiclass3_lvl"], function(v) {
+        getAttrs(["speed", "drop_name", "drop_data", "drop_content", "character_id", "npc_legendary_actions", "strength_mod", "dexterity_mod", "npc", "base_level", "strength_base", "dexterity_base", "constitution_base", "wisdom_base", "intelligence_base", "charisma_base", "bloodrank_base", "class_resource_name", "other_resource_name", "multiclass1_lvl", "multiclass2_lvl", "multiclass3_lvl"], function(v) {
             var pagedata = {};
             try {
                 pagedata = JSON.parse(v.drop_data);
@@ -7805,8 +7881,8 @@
                     case "CHA":
                         finalAttrib = "@{charisma_mod}";
                         break;
-                    case "BRk":
-                        finalAttrib = "@{blood_rank_mod}";
+                    case "BR":
+                        finalAttrib = "@{bloodrank_mod}";
                         break;
                 }
             }
@@ -7823,7 +7899,7 @@
             return uses_string === "" || uses_string === "-" ? uses_string : total;
         };
         var parseValues = function(uses_string) {
-            var attribs = ["strength", "dexterity", "constitution", "wisdom", "intelligence", "charisma"];
+            var attribs = ["strength", "dexterity", "constitution", "wisdom", "intelligence", "charisma", "bloodrank"];
             uses_string = uses_string ? uses_string.toLowerCase() : "";
             _.each(attribs, function(attrib) {
                 var attribMod = Math.floor((parseInt(currentData[attrib + "_base"]) - 10) / 2);
@@ -8051,7 +8127,7 @@
             if(page.name && page.name != "") {update["npc_name"] = page.name};
 
             //ABILITY SCORES
-            const npcAbilites = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+            const npcAbilites = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "bloodrank"];
             npcAbilites.forEach((ability) => {
                 const abbreviation = ability.slice(0, 3).toUpperCase();
                 update[`${ability}_base`] = (page.data[`${abbreviation}`]) ? page.data[`${abbreviation}`] : "";
@@ -8105,7 +8181,7 @@
             update["npc_senses"] = senses;
 
             //SAVES & SKILLS
-            const npcSavesSkills = ["str_save", "dex_save", "con_save", "int_save", "wis_save", "cha_save",'acrobatics','animal_handling','arcana','athletics','deception','history','insight','intimidation','investigation','medicine','nature','perception','performance','persuasion','religion','sleight_of_hand','stealth','survival'];
+            const npcSavesSkills = ["str_save", "dex_save", "con_save", "int_save", "wis_save", "cha_save",'acrobatics','animal_handling','arcana','athletics','deception','history','insight','intimidation','investigation','linguistics','medicine','nature','perception','performance','persuasion','psionics','religion','sleight_of_hand','stealth','survival'];
             npcSavesSkills.forEach((attr) => {
                 update[`npc_${attr}_base`] = "";
             });
@@ -8386,7 +8462,7 @@
                 });
                 if(!existing.toolname) repeating.tool[newrowid] = {toolname: page.name.toLowerCase()}
                 update[`repeating_tool_${newrowid}_toolname`] = page.name;
-                if(!existing.base) update[`repeating_tool_${newrowid}_toolattr_base`] = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}}";
+                if(!existing.base) update[`repeating_tool_${newrowid}_toolattr_base`] = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|BloodRank,@{bloodrank_mod}}";
                 update[`repeating_tool_${newrowid}_options-flag`] = 0;
                 if(page.data["toolbonus_base"]) update[`repeating_tool_${newrowid}_toolbonus_base`] = "(@{pb}*2)";
                 repeating.prof_names.push(page.name.toLowerCase());
@@ -8581,7 +8657,7 @@
                             });
                             if(!existing.toolname) repeating.tool[newrowid] = {toolname: prof.toLowerCase()}
                             update["repeating_tool_" + newrowid + "_toolname"] = prof;
-                            if(!existing.base) update["repeating_tool_" + newrowid + "_toolattr_base"] = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|Charisma,@{charisma_mod}}";
+                            if(!existing.base) update["repeating_tool_" + newrowid + "_toolattr_base"] = "?{Attribute?|Strength,@{strength_mod}|Dexterity,@{dexterity_mod}|Constitution,@{constitution_mod}|Intelligence,@{intelligence_mod}|Wisdom,@{wisdom_mod}|BloodRank,@{bloodrank_mod}}";
                             update["repeating_tool_" + newrowid + "_options-flag"] = 0;
                             repeating.prof_names.push(page.name.toLowerCase());
                             callbacks.push( function() {update_tool(newrowid);} );
@@ -8890,11 +8966,13 @@
             if(mod.indexOf("insight") > -1) {update_skills(["insight"]);};
             if(mod.indexOf("intimidation") > -1) {update_skills(["intimidation"]);};
             if(mod.indexOf("investigation") > -1) {update_skills(["investigation"]);};
+            if(mod.indexOf("linguistics") > -1) {update_skills(["linguistics"]);};
             if(mod.indexOf("medicine") > -1) {update_skills(["medicine"]);};
             if(mod.indexOf("nature") > -1) {update_skills(["nature"]);};
             if(mod.indexOf("perception") > -1) {update_skills(["perception"]);};
             if(mod.indexOf("performance") > -1) {update_skills(["performance"]);};
             if(mod.indexOf("persuasion") > -1) {update_skills(["persuasion"]);};
+            if(mod.indexOf("psionics") > -1) {update_skills(["psionics"]);};
             if(mod.indexOf("religion") > -1) {update_skills(["religion"]);};
             if(mod.indexOf("sleight of hand") > -1) {update_skills(["sleight_of_hand"]);};
             if(mod.indexOf("stealth") > -1) {update_skills(["stealth"]);};
@@ -9215,7 +9293,7 @@
     const update_attacks = (update_id, source) => {
         if (update_id.substring(0,1) === "-" && update_id.length === 20) {
             do_update_attack([update_id], source);
-        } else if (["strength","dexterity","constitution","intelligence","wisdom","charisma","spells","all"].indexOf(update_id) > -1) {
+        } else if (["strength","dexterity","constitution","intelligence","wisdom","charisma","bloodrank","spells","all"].indexOf(update_id) > -1) {
             getSectionIDs("repeating_attack", (idarray) => {
                 if (update_id === "all") {
                     do_update_attack(idarray);
@@ -9262,7 +9340,7 @@
     };
 
     const do_update_attack = (attack_array, source) => {
-        let attack_attribs = ["level","d20","pb","pb_type","pbd_safe","dtype","globalmagicmod","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","blood_rank_mod","spellcasting_ability","spell_save_dc","spell_attack_mod", "spell_dc_mod", "global_damage_mod_roll", "global_damage_mod_crit"];
+        let attack_attribs = ["level","d20","pb","pb_type","pbd_safe","dtype","globalmagicmod","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","bloodrank_mod","spellcasting_ability","spell_save_dc","spell_attack_mod", "spell_dc_mod", "global_damage_mod_roll", "global_damage_mod_crit"];
         _.each(attack_array, (attackid) => {
             ["atkflag","atkname","atkattr_base","atkmod","atkprofflag","atkmagic","dmgflag","dmgbase","dmgattr","dmgmod","dmgtype","dmg2flag","dmg2base","dmg2attr","dmg2mod","dmg2type","dmgcustcrit","dmg2custcrit","saveflag","savedc","saveeffect","saveflat","hldmg","spellid","spelllevel","atkrange","itemid","ammo",].forEach((attr) => {
                 attack_attribs.push(`repeating_attack_${attackid}_${attr}`)
@@ -9823,7 +9901,7 @@
             }
             else {
                 var update = {};
-                var ac_attrs = ["simpleinventory","custom_ac_base","custom_ac_part1","custom_ac_part2","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","blood_rank_mod", "custom_ac_shield"];
+                var ac_attrs = ["simpleinventory","custom_ac_base","custom_ac_part1","custom_ac_part2","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","bloodrank_mod", "custom_ac_shield"];
                 getSectionIDs("repeating_acmod", function(acidarray) {
                     _.each(acidarray, function(currentID, i) {
                         ac_attrs.push("repeating_acmod_" + currentID + "_global_ac_val");
@@ -9984,9 +10062,9 @@
     };
 
     const update_class = () => {
-        getAttrs(["class", "base_level","custom_class","cust_hitdietype","cust_spellcasting_ability","cust_strength_save_prof","cust_dexterity_save_prof","cust_constitution_save_prof","cust_intelligence_save_prof","cust_wisdom_save_prof","cust_charisma_save_prof", "npc"], (v) => {
+        getAttrs(["class", "base_level","custom_class","cust_hitdietype","cust_spellcasting_ability","cust_strength_save_prof","cust_dexterity_save_prof","cust_constitution_save_prof","cust_intelligence_save_prof","cust_wisdom_save_prof","cust_charisma_save_prof","cust_bloodrank_save_prof","npc"], (v) => {
             if (v.npc && v.npc == "1") { return; }
-            const abilites = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
+            const abilites = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma", "BloodRank"];
             //Custom Classes
             if (v.custom_class && v.custom_class != "0") {
                 update = {};
@@ -10220,7 +10298,7 @@
             callbacks.push( function() {update_initiative();} );
             callbacks.push( function() {update_tool("all");} );
             callbacks.push( function() {update_all_saves();} );
-            callbacks.push( function() {update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);} );
+            callbacks.push( function() {update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "linguistics", "nature", "psionics", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);} );
 
             setAttrs(update, {silent: true}, function() {callbacks.forEach(function(callback) {callback(); })} );
         });
@@ -10243,7 +10321,7 @@
 
     var update_spell_info = function(attr) {
         var update = {};
-        getAttrs(["spellcasting_ability","spell_dc_mod","globalmagicmod","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","blood_rank_mod"], function(v) {
+        getAttrs(["spellcasting_ability","spell_dc_mod","globalmagicmod","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","bloodrank_mod"], function(v) {
             if(attr && v["spellcasting_ability"] && v["spellcasting_ability"].indexOf(attr) === -1) {
                 return
             };
@@ -10379,7 +10457,7 @@
     };
 
     const update_npc_skills = () => {
-        const list = ["npc_acrobatics_base","npc_animal_handling_base","npc_arcana_base","npc_athletics_base","npc_deception_base","npc_history_base","npc_insight_base","npc_intimidation_base","npc_investigation_base","npc_medicine_base","npc_nature_base","npc_perception_base","npc_performance_base","npc_persuasion_base","npc_religion_base","npc_sleight_of_hand_base","npc_stealth_base","npc_survival_base"];
+        const list = ["npc_acrobatics_base","npc_animal_handling_base","npc_arcana_base","npc_athletics_base","npc_deception_base","npc_history_base","npc_insight_base","npc_intimidation_base","npc_investigation_base","npc_linguistics_base","npc_medicine_base","npc_nature_base","npc_perception_base","npc_performance_base","npc_persuasion_base",,"npc_psionics_base""npc_religion_base","npc_sleight_of_hand_base","npc_stealth_base","npc_survival_base"];
         const type = "skills";
         update_npc_lists(list, type);
     };
@@ -10871,10 +10949,10 @@
     }
 
     var upgrade_to_2_0 = function(doneupdating) {
-        getAttrs(["npc","strength","dexterity","constitution","intelligence","wisdom","charisma","strength_base","dexterity_base","constitution_base","intelligence_base","wisdom_base","charisma_base","deathsavemod","death_save_mod","npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_str_save_base","npc_dex_save_base","npc_con_save_base","npc_int_save_base","npc_wis_save_base","npc_cha_save_base","npc_acrobatics_base", "npc_animal_handling_base", "npc_arcana_base", "npc_athletics_base", "npc_deception_base", "npc_history_base", "npc_insight_base", "npc_intimidation_base", "npc_investigation_base", "npc_medicine_base", "npc_nature_base", "npc_perception_base", "npc_performance_base", "npc_persuasion_base", "npc_religion_base", "npc_sleight_of_hand_base", "npc_stealth_base", "npc_survival_base", "npc_acrobatics", "npc_animal_handling", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_medicine", "npc_nature", "npc_perception", "npc_performance", "npc_persuasion", "npc_religion", "npc_sleight_of_hand", "npc_stealth", "npc_survival"], function(v) {
+        getAttrs(["npc","strength","dexterity","constitution","intelligence","wisdom","charisma","strength_base","dexterity_base","constitution_base","intelligence_base","wisdom_base","charisma_base","deathsavemod","death_save_mod","npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_str_save_base","npc_dex_save_base","npc_con_save_base","npc_int_save_base","npc_wis_save_base","npc_cha_save_base","npc_acrobatics_base", "npc_animal_handling_base", "npc_arcana_base", "npc_athletics_base", "npc_deception_base", "npc_history_base", "npc_insight_base", "npc_intimidation_base", "npc_investigation_base", "npc_linguistics_base", "npc_medicine_base", "npc_nature_base", "npc_perception_base", "npc_performance_base", "npc_persuasion_base", "npc_psionics_base", "npc_religion_base", "npc_sleight_of_hand_base", "npc_stealth_base", "npc_survival_base", "npc_acrobatics", "npc_animal_handling", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_linguistics", "npc_medicine", "npc_nature", "npc_perception", "npc_performance", "npc_persuasion", "npc_religion", "npc_psionics", "npc_sleight_of_hand", "npc_stealth", "npc_survival"], function(v) {
             var update = {};
-            var stats = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
-            var npc_stats = ["npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_acrobatics", "npc_animal_handling", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_medicine", "npc_nature", "npc_perception", "npc_performance", "npc_persuasion", "npc_religion", "npc_sleight_of_hand", "npc_stealth", "npc_survival"];
+            var stats = ["strength","dexterity","constitution","intelligence","wisdom","charisma","bloodrank"];
+            var npc_stats = ["npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_acrobatics", "npc_animal_handling", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_linguistics", "npc_medicine", "npc_nature", "npc_perception", "npc_performance", "npc_persuasion", "npc_psionics", "npc_religion", "npc_sleight_of_hand", "npc_stealth", "npc_survival"];
             _.each(stats, function(attr) {
                 if(v[attr] && v[attr] != "10" && v[attr + "_base"] == "10") {
                     update[attr + "_base"] = v[attr];
@@ -10898,6 +10976,7 @@
                     update_mod("intelligence");
                     update_mod("wisdom");
                     update_mod("charisma");
+                    update_mod("bloodrank");
                     update_npc_action("all");
                     update_npc_saves();
                     update_npc_skills();
@@ -10913,8 +10992,9 @@
                     update_mod("intelligence");
                     update_mod("wisdom");
                     update_mod("charisma");
+                    update_mod("bloodrank");
                     update_all_saves();
-                    update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
+                    update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "linguistics", "nature", "psionics", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
                     update_tool("all")
                     update_attacks("all");
                     update_pb();
@@ -11279,7 +11359,7 @@
     /*********************************************************************/
 
     var proficiencyList = ["Weapon", "Armor", "Skill", "Tool", "Language"];
-    var abilityList = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
+    var abilityList = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma", "BloodRank"];
     var changeListeners = "mancerchange:race_ability_choice1 mancerchange:race_ability_choice2 mancerchange:subrace_ability_choice1 mancerchange:subrace_ability_choice2 mancerchange:custom_hit_die mancerchange:feat_ability_choice";
     var proficiencyNum = 4;
     var customListeners = "";
@@ -12299,7 +12379,7 @@
 
     var recalcPoints = function() {
         data = getCharmancerData();
-        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
+        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma","bloodrank"];
         var maxPoints = 27;
 
         var scores = {};
@@ -12876,7 +12956,7 @@
     on("mancerchange:abilities", function(eventinfo) {
         var data = getCharmancerData();
         var initHide = ["abilities_possible"];
-        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
+        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma","bloodrank"];
         var standardArray = ["8", "10", "12", "13", "14", "15"];
         var pointbuyChoices = ["8", "9", "10", "11", "12", "13", "14", "15"];
 
@@ -12926,9 +13006,9 @@
         setAttrs(reset);
     });
 
-    on("mancerchange:strength mancerchange:dexterity mancerchange:constitution mancerchange:intelligence mancerchange:wisdom mancerchange:charisma", function(eventinfo) {
+    on("mancerchange:strength mancerchange:dexterity mancerchange:constitution mancerchange:intelligence mancerchange:wisdom mancerchange:charisma mancerchange:bloodrank", function(eventinfo) {
         data = getCharmancerData();
-        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
+        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma","bloodrank"];
         var clearvalue = eventinfo.newValue;
         var clearObject = {
                 strength: data["l1-abilities"].values.strength,
@@ -12937,6 +13017,7 @@
                 intelligence: data["l1-abilities"].values.intelligence,
                 wisdom: data["l1-abilities"].values.wisdom,
                 charisma: data["l1-abilities"].values.charisma};
+                bloodrank: data["l1-abilities"].values.bloodrank};
 
         if (data["l1-abilities"].values.abilities != "custom" && data["l1-abilities"].values.abilities != "Point Buy") {
             attribs = _.reject(attribs, function(item) { return item == eventinfo.triggerName; });
@@ -12958,7 +13039,7 @@
     });
 
     on("mancerroll:rollstats", function(eventinfo) {
-        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
+        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma","bloodrank"];
         var results = [];
         var i = 1;
         _.each(eventinfo.roll, function(roll) {
@@ -12969,13 +13050,13 @@
         _.each(attribs, function(attrib) {
             setCharmancerOptions(attrib, results);
         });
-        setAttrs({roll_results: results, strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: ""});
+        setAttrs({roll_results: results, strength: "", dexterity: "", constitution: "", intelligence: "", wisdom: "", charisma: "", bloodrank: ""});
         showChoices(["abilities_rollstats_rolled","abilities_selects"]);
     });
 
     on("clicked:clearstats", function(eventinfo) {
         var data = getCharmancerData();
-        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
+        var attribs = ["strength","dexterity","constitution","intelligence","wisdom","charisma","bloodrank"];
         reset = {};
         _.each(attribs, function(attrib) {
             reset[attrib] = "";
@@ -14404,7 +14485,7 @@
         var allDrops = [];
         var currentDrop = 0;
         var totalDrops = 1;
-        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
+        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "linguistics", "nature", "psionics", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var allAbilities = abilityList.map(function(x) {return x.toLowerCase()});
         var eraseSections = ["attack", "inventory", "traits", "resource", "proficiencies", "tool", "damagemod", "spell-cantrip", "hpmod", "acmod", "tohitmod", "savemod", "skillmod"];
         console.log(blobs);
@@ -14873,7 +14954,7 @@
             }).join(" ");
         };
         var spellSections = ["spell-cantrip"];
-        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
+        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "linguistics", "nature", "psionics", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var skillget = [];
         for(var x=1; x<=9; x++) {
             spellSections.push("spell-" + x);
@@ -14901,7 +14982,7 @@
                 setAttrs({spellinfo: JSON.stringify(spellInfo)});
             });
         });
-        getAttrs(["strength", "strength_mod", "dexterity", "dexterity_mod", "constitution", "constitution_mod", "intelligence", "intelligence_mod", "wisdom", "wisdom_mod", "charisma", "charisma_mod", "blood_rank", "blood_rank_mod", "strength_maximum", "dexterity_maximum", "constitution_maximum", "intelligence_maximum", "wisdom_maximum", "charisma_maximum", "blood_rank_maximum"], function(attrs) {
+        getAttrs(["strength", "strength_mod", "dexterity", "dexterity_mod", "constitution", "constitution_mod", "intelligence", "intelligence_mod", "wisdom", "wisdom_mod", "charisma", "charisma_mod", "bloodrank", "bloodrank_mod", "strength_maximum", "dexterity_maximum", "constitution_maximum", "intelligence_maximum", "wisdom_maximum", "charisma_maximum", "bloodrank_maximum"], function(attrs) {
             _.each(attrs, function(x, y) {
                 attrs[y] = parseInt(x);
             });
@@ -17098,7 +17179,7 @@
         var allDrops = [];
         var currentDrop = 0;
         var totalDrops = 1;
-        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
+        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "linguistics", "nature", "psionics", "religion", "animal_handling", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var allAbilities = abilityList.map(function(x) {return x.toLowerCase()});
         set["lp-mancer_status"] = "";
         console.log(blobs);
@@ -17332,8 +17413,8 @@
             <span class="charisma_total">-</span>
         </div>
         <div class="sheet-attr-container">
-            <h4 data-i18n="blood-rank">Blood Rank</h4>
-            <span class="blood_rank_total">-</span>
+            <h4 data-i18n="bloodrank">BloodRank</h4>
+            <span class="bloodrank_total">-</span>
         </div>
     </div>
     <div class="meta-info-container">
@@ -17370,8 +17451,8 @@
             <span class="charisma_total">-</span>
         </div>
         <div class="sheet-attr-container">
-            <h4 data-i18n="blood-rank">Blood Rank</h4>
-            <span class="blood_rank_total">-</span>
+            <h4 data-i18n="bloodrank">BloodRank</h4>
+            <span class="bloodrank_total">-</span>
         </div>
     </div>
     <div class="meta-info-container">
@@ -17556,6 +17637,16 @@
                 </div>
                 <h5 data-i18n="charisma">Charisma</h5>
             </div>
+            <div>
+                <span class="bloodrank_lock-up lock-up" style="display:none"></span>
+                <span class="bloodrank_lock-down lock-down" style="display:none">lock</span>
+                <span>+</span><input type="text" name="comp_bloodrank" value="0" disabled>
+                <div>
+                    <button type="action" class="spinner up-spinner" name="act_bloodrank_u">+</button>
+                    <button type="action" class="spinner down-spinner" name="act_bloodrank_d">-</button>
+                </div>
+                <h5 data-i18n="bloodrank">BloodRank</h5>
+            </div>
         </div>
     </div>
     <div class="feat">
@@ -17637,6 +17728,7 @@
                             <option value="intelligence" data-i18n="intelligence">Intelligence</option>
                             <option value="wisdom" data-i18n="wisdom">Wisdom</option>
                             <option value="charisma" data-i18n="charisma">Charisma</option>
+                            <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
                         </select>
                         <select class="choice race_possible race_ability_choice2" name="comp_race_ability_choice2">
                             <option value="" data-i18n="choose">Choose</option>
@@ -17646,6 +17738,7 @@
                             <option value="intelligence" data-i18n="intelligence">Intelligence</option>
                             <option value="wisdom" data-i18n="wisdom">Wisdom</option>
                             <option value="charisma" data-i18n="charisma">Charisma</option>
+                            <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
                         </select>
                         <label class="choice custom_race"><span data-i18n="strength">Strength:</span>
                             <input class="choice custom_race" type="number" name="comp_race_custom_strength" value="0" min="-5" max="5">
@@ -17665,21 +17758,27 @@
                         <label class="choice custom_race"><span data-i18n="charisma">Charisma:</span>
                             <input class="choice custom_race" type="number" name="comp_race_custom_charisma" value="0" min="-5" max="5">
                         </label>
+                        <label class="choice custom_race"><span data-i18n="bloodrank">BloodRank:</span>
+                            <input class="choice custom_race" type="number" name="comp_race_custom_bloodrank" value="0" min="-5" max="5">
+                        </label>
                     </label>
                 </div>
                 <div class="choice row race_always custom_race">
-                    <label><span data-i18n="nationality">Alignment:</span>
+                    <label><span data-i18n="nationality">Nationality:</span>
                         <select name="comp_nationality"> <!-- Character%20Advancement#h-Alignment -->
-                            <option value="" data-i18n="choose">Choose</option>
-                            <option value="Lawful Good" data-i18n="lawful-good">Lawful Good</option>
-                            <option value="Neutral Good" data-i18n="neutral-good">Neutral Good</option>
-                            <option value="Chaotic Good" data-i18n="chaotic-good">Chaotic Good</option>
-                            <option value="Lawful Neutral" data-i18n="lawful-neutral">Lawful Neutral</option>
-                            <option value="Neutral" data-i18n="neutral">Neutral</option>
-                            <option value="Chaotic Neutral" data-i18n="chaotic-neutral">Chaotic Neutral</option>
-                            <option value="Lawful Evil" data-i18n="lawful-evil">Lawful Evil</option>
-                            <option value="Neutral Evil" data-i18n="neutral-evil">Neutral Evil</option>
-                            <option value="Chaotic Evil" data-i18n="chaotic-evil">Chaotic Evil</option>
+                            <option value="Blessed Lands Basin" data-i18n="blessed-lands-basin">Blessed Lands Basin</option>
+                            <option value="Coryani Empire" data-i18n="coryani-empire">Coryani Empire</option>
+                            <option value="Elonbé" data-i18n="elonbe">Elonbé</option>
+                            <option value="Encali Dwarven Enclave" data-i18n="encali-dwarven-enclave">Encali Dwarven Enclave</option>
+                            <option value="Free City-States of Almeric" data-i18n="free-city-states-of-almeric">Free City-States of Almeric</option>
+                            <option value="Hinterlands" data-i18n="hinterlands">Hinterlands</option>
+                            <option value="Kingdom of Milandir" data-i18n="kingdom-of-milandir">Kingdom of Milandir</option>
+                            <option value="League of Princes" data-i18n="league-of-princes">League of Princes</option>
+                            <option value="Nol Dappa Dwarven Enclave" data-i18n="nol-dappa-dwarven-enclave">Nol Dappa Dwarven Enclave</option>
+                            <option value="Republic of Altheria" data-i18n="republic-of-altheria">Republic of Altheria</option>
+                            <option value="Solanos Mor Dwarven Enclave" data-i18n="solanos-mor-dwarven-enclave">Solanos Mor Dwarven Enclave</option>
+                            <option value="The First City" data-i18n="the-first-city">The First City</option>
+                            <option value="Tir Betoq Dwarven Enclave" data-i18n="tir-betoq-dwarven-enclave">Tir Betoq Dwarven Enclave</option>
                         </select>
                     </label>
                 </div>
@@ -17731,6 +17830,7 @@
                                     <option value="intelligence" data-i18n="intelligence">Intelligence</option>
                                     <option value="wisdom" data-i18n="wisdom">Wisdom</option>
                                     <option value="charisma" data-i18n="charisma">Charisma</option>
+                                    <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
                                 </select>
                                 <select class="choice subrace_possible subrace_ability_choice2" name="comp_subrace_ability_choice2">
                                     <option value="" data-i18n="choose">Choose</option>
@@ -17740,6 +17840,7 @@
                                     <option value="intelligence" data-i18n="intelligence">Intelligence</option>
                                     <option value="wisdom" data-i18n="wisdom">Wisdom</option>
                                     <option value="charisma" data-i18n="charisma">Charisma</option>
+                                    <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
                                 </select>
                                 <label class="choice custom_subrace"><span data-i18n="strength:">Strength:</span>
                                     <input class="choice custom_subrace" type="number" name="comp_subrace_custom_strength" value="0" min="-5" max="5">
@@ -17781,6 +17882,7 @@
                                 <option value="Intelligence" data-i18n="intelligence">Intelligence</option>
                                 <option value="Wisdom" data-i18n="wisdom">Wisdom</option>
                                 <option value="Charisma" data-i18n="charisma">Charisma</option>
+                                <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
                             </select>
                         </label>
                         <label class="hilite choice custom_spellcasting"><span data-i18n="number-of-cantrips">Number of Cantrips:</span>
@@ -17899,6 +18001,7 @@
                                 <option value="Intelligence" data-i18n="intelligence">Intelligence</option>
                                 <option value="Wisdom" data-i18n="wisdom">Wisdom</option>
                                 <option value="Charisma" data-i18n="charisma">Charisma</option>
+                                <option value="bloodrank" data-i18n="bloodrank">BloodRank</option>
                             </select>
                         </label>
                         <label class="hilite choice custom_spellcasting"><span data-i18n="number-of-cantrips">Number of Cantrips:</span>
@@ -18052,6 +18155,10 @@
                             <span class="label" data-i18n="charisma">Charisma:</span>
                             <span class="abilities_radio_charisma" name="comp_charisma" required></span>
                         </div>
+                        <div>
+                            <span class="label" data-i18n="bloodrank">BloodRank:</span>
+                            <span class="abilities_radio_bloodrank" name="comp_bloodrank" required></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -18083,6 +18190,10 @@
                         <div>
                             <span class="label" data-i18n="charisma">Charisma:</span>
                             <input type="number" name="comp_charisma" min="0" max="20" required>
+                        </div>
+                        <div>
+                            <span class="label" data-i18n="bloodrank">BloodRank:</span>
+                            <input type="number" name="comp_bloodrank" min="0" max="20" required>
                         </div>
                     </div>
                 </div>
