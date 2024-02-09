@@ -1,1 +1,1 @@
-This character sheet is for Arcanis 5e and is based upon a legacy copy of the D&D 5th Edition character sheet by Roll20.
+This character sheet is for Arcanis 5e and is based upon a legacy copy of the D&D 5th Edition SRD character sheet by Roll20.
