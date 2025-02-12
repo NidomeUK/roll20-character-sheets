@@ -1,0 +1,210 @@
+<div class="preview" data-shortname="ogl5e" style="display: block;"><h3>D&amp;D 5E by Roll20</h3><p><strong>Authors:</strong>User Collaboration Team</p><img src="https://storage.googleapis.com/char-sheet-app-dff083b4/charsheets/ogl5e/sheet.png?1616088208"><div class="instructions"><p>Compatible for use with Dungeons and Dragons 5th Edition. Check out the <a href="https://roll20.zendesk.com/hc/en-us/articles/360037773573">Sheet Guide</a> for tips and tricks on getting the most out of the 5th Edition sheet.</p>
+
+<ul>
+<li>Drag and Drop compatible with the <a href="https://app.roll20.net/compendium/dnd5e/BookIndex">Roll20 Compendium</a>. Instantly import spells, items, and NPCs into your game.</li>
+<li>Slim and simple highly performant design.</li>
+<li>Auto calculations and workers help remove bookkeeping and speed up your game.</li>
+<li>Built in roll buttons and templates make using your abilities easy and the results pop.</li>
+<li>Customizable skills, attacks, and spells.</li>
+<li>Multi-classing and custom classes.</li>
+<li>Settings for advantage, GM whispered rolls, easy damage output, simple inventory and much more.</li>
+<li>NPC Sheet with traits and rollable actions.</li>
+</ul>
+
+</div>
+
+<div class="defaultsheetsettingscontainer"><h4>Default Sheet Settings</h4>
+{
+"displayname": "NPC",
+"type": "checkbox",
+"attribute": "npc",
+"value": "1",
+"description": "The NPC option sets new characters to default to the NPC card style sheet. Useful if the player characters have already been created and all new character sheets added to the game will likely representing non player characters.
+},
+{
+"displayname": "USE LEVEL 1 CHARACTERMANCER FOR NEW CHARACTERS:",
+"attribute": "l1mancer_status"><option value=" " selected="selected">Yes</option><option value="completed">No</option></select,
+"description": "With this option enabled all new characters will open with the Level 1 Roll20 Charactermancer. Disabling this option will start new characters directly on the character sheet disabling the Level 1 Charactermancer, which can still be manually run from the Settings tab of the character sheet.
+},
+{
+"displayname": "LEVEL-UP BUTTON MODE:",
+"attribute": "lvup_button_mode"><option value=" " selected="selected">Milestone</option><option value="xp">Experience Points</option><option value="off">Disabled</option></select,
+"description": "With this option set to 'Milestone', the button to invoke the Charactermancer will be displayed all the time beside the character class. In the 'Experience Points' mode, the button will only be displayed when the character acquired enough XP to go to the next level. Disabling this option will hide the button, however, players can still fire Charactermancer by going into the sheet settings.
+},
+{
+"displayname": "ROLL QUERIES:",
+"attribute": "rtype"><option value="{{always=1}} {{r2=[[1d20" selected="selected">Always Roll Advantage</option><option value="@{advantagetoggle}">Advantage Toggle</option><option value="{{query=1}} ?{Advantage?|Normal Roll,&amp;#123&amp;#123normal=1&amp;#125&amp;#125 &amp;#123&amp;#123r2=[[0d20|Advantage,&amp;#123&amp;#123advantage=1&amp;#125&amp;#125 &amp;#123&amp;#123r2=[[1d20|Disadvantage,&amp;#123&amp;#123disadvantage=1&amp;#125&amp;#125 &amp;#123&amp;#123r2=[[1d20}">Query Advantage</option><option value="{{normal=1}} {{r2=[[0d20">Never Roll Advantage</option></select,
+"description": "D20 Rolls output according to this option. Always Roll Advantage is the default setting and will roll two D20 on every roll in case of advantage. The expectation is that if there is no advantage or disadvantage you use the left most result. The Advantage Toggle option adds three new buttons to the top of the sheet so that you can toggle advantage on a case by case basis. Query Advantage gives you a prompt every roll asking if the roll has advantage. Never Roll Advantage always rolls a single D20 on any given roll, expecting the player to roll a second time in case of advantage or disadvantage.
+},
+{
+"displayname": "WHISPER ROLLS TO GM:",
+"attribute": "wtype"><option value=" " selected="selected">Never Whisper Rolls</option><option value="@{whispertoggle}">Whisper Toggle</option><option value="?{Whisper?|Public Roll,|Whisper Roll,/w gm }">Query Whisper</option><option value="/w gm ">Always Whisper Rolls</option></select,
+"description": "All sheet rolls are sent to all players in chat by default. Query Whisper option gives you a prompt with each roll of whether or not the roll should be sent privately only to yourself and the GM. Always Whisper Rolls will send all rolls only to yourself and the GM.
+},
+{
+"displayname": "AUTO DAMAGE ROLL:",
+"attribute": "dtype"><option value="pick" selected="selected">Don't Auto Roll Damage</option><option value="full">Auto Roll Damage &amp; Crit</option></select,
+"description": "By default, attack damage rolls are not rolled until the hit is confirmed. Damage is rolled from the chat roll template by clicking on the name of the attack in the right hand bar, which then displays the damage. The default method is compatible with 3D dice. Optionally, you can choose to have the Auto Roll Damage &amp; Crit option which will roll damage and critical hit dice at the same time of the attack, presenting all possible outcomes at the time of the attack.
+},
+{
+"displayname": "CORE DIE ROLL:",
+"type": "text",
+"attribute": "core_die" value="1d20",
+"description": "Changing the core die will replace the normal 1d20 made with almost all rolls with a randomizer of your choice, such as 2d10 or 3d6.
+},
+{
+"displayname": "PROFICIENCY BONUS:",
+"attribute": "pb_type"><option value="level" selected="selected">By Level (Default)</option><option value="die">Proficiency Die (DMG)</option><option value="custom">Custom</option></select,
+"description": "By default, the character's Proficiency Bonus will be automatically calculated based off of their total level as is the standard method in the PHB. The Proficiency Die option supports the alternate method outlined in the DMG where, instead of a flat bonus, a die is rolled instead. The Custom option allows you to replace the PB with anything of your choosing.
+},
+{
+"displayname": "CUSTOM PROFICIENCY BONUS:",
+"type": "text",
+"attribute": "pb_custom",
+"description": "When the Proficiency Bonus type is set to Custom, the character sheet will use this value for the character's Proficiency Bonus.
+},
+{
+"displayname": "ADD DEX TIEBREAKER TO INITIATIVE",
+"type": "checkbox",
+"attribute": "init_tiebreaker" value="@{dexterity}/100",
+"description": "Adds the character's dexterity score as a decimal to the end of the initiative bonus for purposes of breaking ties.
+},
+{
+"displayname": "SHOW GLOBAL SAVE MODIFIER FIELD",
+"type": "checkbox",
+"attribute": "global_save_mod_flag",
+"value": "1",
+"description": "Creates a custom global save modifier field, underneath the SAVING THROWS section of the character sheet. Anything put there will be applied to any save roll. Perfect for regular but not permanent bonuses like the Bless spell.
+},
+{
+"displayname": "SHOW GLOBAL SKILL MODIFIER FIELD",
+"type": "checkbox",
+"attribute": "global_skill_mod_flag",
+"value": "1",
+"description": "Creates a custom global skill modifier field, underneath the SKILLS section of the character sheet. Anything put there will be applied to any save roll. Perfect for regular but not permanent bonuses like the Guidance spell.
+},
+{
+"displayname": "SHOW GLOBAL ATTACK MODIFIER FIELD",
+"type": "checkbox",
+"attribute": "global_attack_mod_flag",
+"value": "1",
+"description": "Creates a custom global attack modifier field, underneath the ATTACKS AND SPELL CASTING section of the character sheet. Anything put there will be applied to any attack to-hit roll. Perfect for regular but not permanent bonuses to attack like the Bless spell.
+},
+{
+"displayname": "SHOW GLOBAL DAMAGE MODIFIER FIELD",
+"type": "checkbox",
+"attribute": "global_damage_mod_flag",
+"value": "1",
+"description": "Creates a custom global damage modifier field, underneath the ATTACKS AND SPELL CASTING section of the character sheet. Anything put there will be applied to any attack damage roll. Perfect for regular but not permanent bonuses to damage like the Sneak Attack ability.
+},
+{
+"displayname": "ADD CHARACTER NAME TO TEMPLATES:",
+"attribute": "charname_output"><option value="{{charname=@{character_name}}}">On</option><option value="charname=@{character_name}" selected="selected">Off</option></select,
+"description": "Character names are not added to the roll template by default, and are only displayed as normal in the chat tab as the player/character selected as 'Speaking As'. Turning this option on adds the character making the roll's name to the template, useful for players representing multiple characters.
+},
+{
+"displayname": "AUTO LEVEL CALCULATIONS:",
+"attribute": "level_calculations"><option value="on" selected="selected">On</option><option value="off">Off</option></select,
+"description": "By default changing character levels will automatically set spell slots and hit dice. Changing this setting to off prevents this behavior.
+},
+{
+"displayname": "ENCUMBRANCE:",
+"attribute": "encumberance_setting"><option value="off">Simple</option><option value="on" selected="selected">Variant (PHB p176)</option><option value="disabled">Off</option></select,
+"description": "The sheet uses the variant encumbrance rules on page 176 of the PHB. The Off option disables the variant rules and only uses a basic over-limit inventory weight check.
+},
+{
+"displayname": "INVENTORY:",
+"attribute": "simpleinventory"><option value="complex" selected="selected">Compendium Compatible</option><option value="simple">Simple</option></select,
+"description": "Character Inventories default to the complex style that is compatible with the Roll20 5E Compendium. This includes granular item amounts/weights, weight and encumbrance tracking, sorting, AC calculations, automatic attack generation, and more. The Simple option provides a text field for item lists for players who want more manual control over the sheet.
+},
+{
+"displayname": "FEATURES &amp; TRAITS",
+"attribute": "simpletraits"><option value="complex" selected="selected">Compendium Compatible</option><option value="simple">Simple</option></select,
+"description": "Character FEATURES AND TRAITS section defaults to the complex style that is compatible with the Roll20 5E Compendium. The Simple option provides a text field for players who want more manual control over the sheet.
+},
+{
+"displayname": "PROFICIENCIES &amp; LANGUAGES",
+"attribute": "simpleproficencies"><option value="complex" selected="selected">Compendium Compatible</option><option value="simple">Simple</option></select,
+"description": "Character OTHER PROFICIENCIES &amp; LANGUAGES section defaults to the complex style that is compatible with the Roll20 5E Compendium. The Simple option provides a text field for players who want more manual control over the sheet.
+},
+{
+"displayname": "NPC NAME IN ROLLS:",
+"attribute": "npc_name_flag"><option value="{{name=@{npc_name}}}" selected="selected">Show</option><option value="0">Hide</option></select,
+"description": "In NPC roll results, show or hide the name of the NPC in the roll result card.
+},
+{
+"displayname": "AMMO TRACKING:",
+"attribute": "ammotracking"><option value="on">On</option><option value="off" selected="selected">Off</option></select,
+"description": "Provides automatic ammo tracking with the <a src="https://wiki.roll20.net/5th_Edition_OGL_by_Roll20#Utilizing_the_5th_Edition_OGL_Companion_API_Script">5th Edition OGL by Roll20 Companion API Script</a>.
+},
+{
+"displayname": "BAR 1 VALUE:",
+"type": "text",
+"attribute": "cd_bar1_v",
+"value": "hp_max",
+"description": "On Default Tokens created by doing a Compendium drop onto the virtual table top, set the Bar 1's value to this attribute.
+},
+{
+"displayname": "BAR 1 MAX:",
+"type": "text",
+"attribute": "cd_bar1_m",
+"value": "hp_max",
+"description": "On Default Tokens created by doing a Compendium drop onto the virtual table top, set the Bar 1's max to this attribute.
+},
+{
+"displayname": "BAR 1 LINK:",
+"type": "text",
+"attribute": "cd_bar1_l",
+"description": "On Default Tokens created by doing a Compendium drop onto the virtual table top, link the Bar 1's value to this attribute. If set this will override all other bar settings.
+},
+{
+"displayname": "BAR 2 VALUE:",
+"type": "text",
+"attribute": "cd_bar2_v",
+"description": "On Default Tokens created by doing a Compendium drop onto the virtual table top, set the Bar 2's value to this attribute.
+},
+{
+"displayname": "BAR 2 MAX:",
+"type": "text",
+"attribute": "cd_bar2_m",
+"description": "On Default Tokens created by doing a Compendium drop onto the virtual table top, set the Bar 2's max to this attribute.
+},
+{
+"displayname": "BAR 2 LINK:",
+"type": "text",
+"attribute": "cd_bar2_l",
+"value": "npc_ac",
+"description": "On Default Tokens created by doing a Compendium drop onto the virtual table top, link the Bar 2's value to this attribute. If set this will override all other bar settings.
+},
+{
+"displayname": "BAR 3 VALUE:",
+"type": "text",
+"attribute": "cd_bar3_v",
+"description": "On Default Tokens created by doing a Compendium drop onto the virtual table top, set the Bar 3's value to this attribute.
+},
+{
+"displayname": "BAR 3 MAX:",
+"type": "text",
+"attribute": "cd_bar3_m",
+"description": "On Default Tokens created by doing a Compendium drop onto the virtual table top, set the Bar 3's max to this attribute.
+},
+{
+"displayname": "BAR 3 LINK:",
+"type": "text",
+"attribute": "cd_bar3_l",
+"description": "On Default Tokens created by doing a Compendium drop onto the virtual table top, link the Bar 3's value to this attribute. If set this will override all other bar settings.
+},
+{
+"displayname": "HONOR SCORE:",
+"attribute": "honor_toggle"><option value="1">On</option><option value="0" selected="selected">Off</option></select,
+"description": "Enables the optional Honor Attribute.
+},
+{
+"displayname": "SANITY SCORE:",
+"attribute": "sanity_toggle"><option value="1">On</option><option value="0" selected="selected">Off</option></select,
+"description": "Enables the optional Sanity Attribute.
+},
+
+</div>
+
+</div>

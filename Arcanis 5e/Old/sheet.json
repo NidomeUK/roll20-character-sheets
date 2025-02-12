@@ -3,10 +3,10 @@
 	"css": "Arcanis5e.css",
 	"authors": "Nicola B.",
 	"roll20userid": "228176",
-	"preview": "https://raw.githubusercontent.com/NidomeUK/CharSheetImages/master/images/Arcanis%205e.png",
-	"legacy": false,
+	"preview": "5th Edition Legacy.png",
+	"legacy": true,
 	"compendium": "dnd5e",
-	"instructions": "This character sheet is for Arcanis 5e and is based upon a legacy copy of the D&D 5th Edition character sheet by Roll20.\n\nCompatible for use with Dungeons and Dragons 5th Edition but modified with many Arcanis 5e functions.\n> \tDrag and Drop compatible with the Roll20 Compendium.\n Instantly import standard 5e spells, items, and NPCs from the 5e Compendium.\n> \tAuto calculations and workers help remove bookkeeping and speed up the game.\n> \tBuilt in roll buttons and templates make using your abilities easy.\n> \tCustomizable skills, attacks, and spells.\n> \tMulti-classing and custom classes.\n> \tSettings for advantage, GM whispered rolls, easy damage output, simple inventory and much more.\n> \tNPC Sheet with traits and rollable actions.",
+	"instructions": "This character sheet is for Arcanis 5e and is based upon a legacy copy of the D&D 5th Edition character sheet by Roll20.",
 	"useroptions": [
 		{
 			"attribute": "npc",
@@ -16,21 +16,6 @@
 			"value": "1",
 			"description": "The NPC option sets new characters to default to the NPC card style sheet. Useful if the player characters have already been created and all new character sheets added to the game will likely represent none player characters.",
 			"descriptiontranslationkey": "npc-info"
-		},
-		{
-			"attribute": "l1mancer_status",
-			"displayname": "USE LEVEL 1 CHARACTERMANCER FOR NEW CHARACTERS:",
-			"displaytranslationkey": "use-charactermancer-for-new:-u",
-			"type": "select",
-			"options": [
-			  "No|completed"
-			],
-			"optiontranslationkeys": [
-			  "no"
-			],
-			"default": "completed",
-			"description": "The Roll20 Charactermancer is disabled on this sheet.",
-			"descriptiontranslationkey": "use-charactermancer-for-new-info"
 		},
 		{
 			"attribute": "rtype",
@@ -387,21 +372,13 @@
 			"descriptiontranslationkey": "cd-bar3-link-desc:-u"
 		},
 		{
-			"attribute": "bloodrank_toggle",
-			"displayname": "BLOOD RANK ATTRIBUTE:",
-			"displaytranslationkey": "bloodrank-score:-u",
-			"type": "select",
-			"options": [
-				"On|1",
-				"Off|0"
-			],
-			"optiontranslationkeys": [
-				"show",
-				"hide"
-			],
-			"default": "1",
-			"description": "Enables the optional Blood Rank Attribute.",
-			"descriptiontranslationkey": "bloodrank-score-desc:-u"
+			"attribute": "licensedsheet",
+			"displayname": "LICENSED SHEET",
+			"displaytranslationkey": "licensedsheet-u",
+			"type": "checkbox",
+			"value": "1",
+			"description": "Turns on Dungeond and Dragons styling for both the character sheet and roll templates. This setting is automatically applied to all character sheets and cannot be selectively used.",
+			"descriptiontranslationkey": "licensedsheet-info"
 		}
 	]
 }
